@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#8bcdf4">
+<title>暑假最難忘的回憶｜夏日手帳</title>
+<style>
+  :root {
+    --ink: #244d82;
+    --blue: #5ba9e8;
+    --pink: #f3a6bd;
+    --paper: rgba(255, 253, 247, .94);
+    --gold: #f6cb63;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    background: #a8dcfa url("anime-summer-background.png") center top / cover fixed no-repeat;
+    line-height: 1.95;
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: -1;
+    background: linear-gradient(180deg, rgba(91,169,232,.12), rgba(255,246,222,.36));
+  }
+  .hero {
+    min-height: 320px;
+    padding: 34px 20px 76px;
+    display: grid; place-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(21,76,130,.12), rgba(255,255,255,.12));
+  }
+  .hero-tag {
+    display: inline-block;
+    padding: 5px 16px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 999px;
+    background: rgba(255,255,255,.76);
+    letter-spacing: .12em;
+    font-size: .85rem;
+  }
+  h1 {
+    margin: 14px 0 8px;
+    font-size: clamp(2rem, 5.5vw, 4.1rem);
+    line-height: 1.25;
+    letter-spacing: .08em;
+    text-shadow: 0 3px 0 rgba(255,255,255,.75);
+  }
+  .hero p { margin: 0; font-size: clamp(.95rem, 2vw, 1.15rem); }
+  nav {
+    position: sticky; top: 10px; z-index: 5;
+    width: min(920px, calc(100% - 28px));
+    margin: -48px auto 28px;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.85);
+    border-radius: 999px;
+    background: rgba(255,255,255,.91);
+    box-shadow: 0 10px 30px rgba(40,92,135,.14);
+    backdrop-filter: blur(12px);
+  }
+  nav a {
+    color: var(--ink); text-decoration: none;
+    padding: 7px 15px; border-radius: 999px; font-weight: 700;
+    transition: background .2s, transform .2s;
+  }
+  nav a:hover, nav a:focus-visible { background: #e4f4ff; transform: translateY(-2px); outline: none; }
+  main { width: min(850px, calc(100% - 28px)); margin: 0 auto 48px; }
+  .paper {
+    position: relative;
+    padding: clamp(24px, 5vw, 54px);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px 22px 34px 22px;
+    background:
+      repeating-linear-gradient(transparent 0 42px, rgba(106,173,225,.12) 43px 44px),
+      var(--paper);
+    box-shadow: 0 18px 55px rgba(37,87,130,.19);
+    animation: rise .8s ease both;
+  }
+  .paper::before {
+    content: "✿";
+    position: absolute; top: 15px; right: 22px;
+    color: var(--pink); font-size: 1.7rem;
+    transform: rotate(-15deg);
+  }
+  h2 { font-size: clamp(1.55rem, 4vw, 2.2rem); margin: 0 0 20px; line-height: 1.45; }
+  h2 span { display: inline; background: linear-gradient(transparent 70%, #ffe59a 70%); }
+  .intro { font-size: 1.08rem; }
+  .chapter {
+    display: grid; grid-template-columns: 42px 1fr; gap: 13px;
+    margin-top: 24px; align-items: start;
+  }
+  .number {
+    display: grid; place-items: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    color: white; font-weight: 800;
+    background: var(--blue); box-shadow: 0 3px 0 rgba(28,91,145,.13);
+  }
+  .chapter:nth-of-type(3) .number { background: #69c7a2; }
+  .chapter:nth-of-type(4) .number { background: #f4b94f; }
+  .chapter p { margin: 0; }
+  .quote {
+    margin: 30px 0 0; padding: 18px 22px;
+    border-left: 5px solid var(--gold); border-radius: 0 15px 15px 0;
+    background: #fff7df; font-size: 1.08rem; font-weight: 700;
+  }
+  .footer { text-align: center; padding: 10px 15px 36px; color: #174c7e; }
+  .footer .star { font-size: 1.35rem; letter-spacing: .4em; color: #fff; text-shadow: 0 1px 5px #3984b7; }
+  .top-button {
+    position: fixed; right: 18px; bottom: 18px; z-index: 8;
+    width: 48px; height: 48px; border: 0; border-radius: 50%;
+    background: #fff; color: var(--ink); font-size: 1.2rem; cursor: pointer;
+    box-shadow: 0 6px 20px rgba(28,83,130,.22);
+  }
+  .top-button:hover { transform: translateY(-3px); }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 560px) {
+    .hero { min-height: 270px; padding-bottom: 65px; }
+    nav { border-radius: 22px; }
+    nav a { padding: 5px 10px; font-size: .9rem; }
+    .paper { border-radius: 18px; }
+    .chapter { grid-template-columns: 32px 1fr; gap: 9px; }
+    .number { width: 30px; height: 30px; }
+    body { background-attachment: scroll; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div>
+    <div class="hero-tag">☀ 夏日手帳・成長紀錄 ☀</div>
+    <h1>暑假最難忘的回憶</h1>
+    <p>那些努力的日子，也成了最珍貴的回憶。</p>
+  </div>
+</header>
+<nav aria-label="頁面導覽">
+  <a href="#top">⌂ 首頁</a>
+  <a href="#memory">♡ 我的回憶</a>
+  <a href="#growth">✿ 學習成長</a>
+  <a href="#ending">✧ 暑假收穫</a>
+</nav>
+<main>
+  <article class="paper" id="memory">
+    <h2><span>☀ 暑假最難忘的回憶</span></h2>
+    <p class="intro">每個人的暑假都有不同的回憶，有人去了風景美麗的地方旅行，有人和家人一起度過快樂的時光，而我今年暑假最難忘的回憶，卻是寫了很多講義。</p>
+    <section class="chapter">
+      <div class="number">1</div>
+      <p>一開始放暑假的時候，我以為終於可以好好休息，每天睡到自然醒，做自己喜歡的事情。沒想到老師安排了不少講義和作業，桌上常常堆著厚厚的一疊講義。剛開始寫的時候，我覺得非常煩躁，總覺得暑假應該是用來玩的，為什麼還要一直寫作業呢？</p>
+    </section>
+    <section class="chapter" id="growth">
+      <div class="number">2</div>
+      <p>可是，當我一天一天完成講義，看著原本空白的題目慢慢被寫滿，我開始有了一種成就感。遇到不會的題目時，我也會仔細閱讀課本，或請教家人，把不懂的地方弄清楚。雖然過程有些辛苦，但我發現自己對課程內容越來越熟悉，也比以前更有耐心。</p>
+    </section>
+    <section class="chapter" id="ending">
+      <div class="number">3</div>
+      <p>現在回想起來，這個暑假雖然沒有每天出去玩，卻讓我學會了安排時間，也體會到「一分耕耘，一分收穫」的道理。那些寫過的講義，記錄了我努力學習的過程，也成為我今年暑假最特別、最難忘的回憶。</p>
+    </section>
+    <blockquote class="quote">「一分耕耘，一分收穫。」<br>每一點努力，都會成為成長的證明。 ✨</blockquote>
+  </article>
+</main>
+<footer class="footer">
+  <div class="star">✦ ✧ ✦</div>
+  <p>這個夏天，努力過的每一刻都值得收藏。</p>
+  <small>Summer Memories · 暑假成長手帳</small>
+</footer>
+<button class="top-button" aria-label="回到頂部" title="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+</body>
+</html>
